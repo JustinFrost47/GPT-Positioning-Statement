@@ -38,7 +38,7 @@ html ,body{
     padding: 2em 2em;
     max-width: 80%;
     
-    border: solid 2em black;
+    border: solid 5px black;
 }
 
 
@@ -65,7 +65,7 @@ a{
     padding: 2em 2em;
     max-width: 80%;
     
-    border: solid 2em black;
+    border: solid 5px black;
 }
 
 .Stage{

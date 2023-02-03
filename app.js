@@ -117,13 +117,13 @@ const removeStage = () => {
 
     //below makes request to api - comment out to save tokens
 
-   /*  const reply = makeReq(apiUrl, key, sPrompt); */
+    const reply = makeReq(apiUrl, key, sPrompt); 
 
 
      //Test codes - used to see if our application works properly 
-    console.log('one pass')
+    /* console.log('one pass')
     removeStage();
-    addElement(sPrompt); 
+    addElement(sPrompt);  */
                    
 }
 

@@ -59,7 +59,7 @@ const addElement = (content) => {
     let contentStage = document.createElement('div');
     contentStage.classList.toggle('Stage');
 
-    contentStage.innerHTML = `<b>${content}</b>`;
+    contentStage.innerHTML = `<div class="p-3 bg-info bg-opacity-10 border border-info rounded">${content}</div>`;
     contain.append(contentStage);
 }
 
@@ -136,7 +136,7 @@ const Button = document.querySelector('.ButtonDiv');
 
 Button.addEventListener('click', (e) => {
 
-    if(document.querySelector('.Stage')) {
+    while(document.querySelector('.Stage')) {
         removeStage();
     }
     addElement("Loading...");

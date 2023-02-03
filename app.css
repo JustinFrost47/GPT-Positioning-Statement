@@ -1,0 +1,73 @@
+html ,body{
+   /*  height: 100%; */
+    width: 100%;
+    margin: 0px;
+}
+
+
+.MainCanvas{
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.Form{
+    width: 100%;
+
+}
+
+.FormWrapper{
+    height: 30em;
+    width: 70%;
+}
+
+.FormWrapper{
+    
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+}
+
+.FormTextBox{
+    width: 50%;
+    height: 5em;
+    
+    display:inline-block;
+}
+
+.LabelDiv{
+    display: inline-block;
+}
+
+.FormTextBoxWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end ;
+    align-items: center;
+    align-content: space-evenly;
+}
+
+.FormButton{
+    height: 3em;
+    width: 5em;
+    background-color: green;
+}
+
+.ButtonDiv{
+
+    height: 3em;
+    width: 5em;
+    background-color: green;
+}
+
+
+
+.ReplyWrapper{
+    margin-top: 8em;
+    background-color: #282828;
+    min-height: 40em;
+    width: 70%;
+}

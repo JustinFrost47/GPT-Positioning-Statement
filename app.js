@@ -45,7 +45,14 @@ const makeReq = async (url, apiKey, req) => {
     }
     catch (e) {
     console.log("error occured")
-    console.log(e)
+    console.dir(e)
+    console.log(e.response.status)
+
+        if(e.response.status===401){
+
+            removeStage();
+            addError("Looks like the api key you entered is invalid. Kindly change it and try again");
+        }
     }
 
 }
@@ -65,6 +72,19 @@ const addElement = (content) => {
 
 
 
+
+//adds 'error' alerts
+const addError = (content) => {
+    
+           addElement(`<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div>${content}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`);
+
+}
+
+
+
 //Removes first stage element
 const removeStage = () => {
 
@@ -73,26 +93,10 @@ const removeStage = () => {
 }
 
 
+// Structures and returns starter prompts, opt may be used for different type of users in the future
+createPrompt = (company, problem, solution, differs, opt) => {
 
-
-//gets inputs, prepares prompt, calls makeReq() 
-
-    const prepInputs = () => {
-
-
-    //Getting inputs from forms
-    const company = document.querySelector('#name').value;
-    const key = document.querySelector('#pass').value;
-
-    const work = document.querySelector('#defn').value;
-    const problem = document.querySelector('#problem').value;
-    const solution = document.querySelector('#solution').value;
-    const differs = document.querySelector('#diff').value;
-    
-
-
-    //The starter prompt, Alter this for better replies
-    const sPrompt = `CREATE A ENGAGING AND VIRAL POSITIONING STATEMENT FOR THE GIVEN BRANDS
+            prompt =`CREATE A ENGAGING AND VIRAL POSITIONING STATEMENT FOR THE GIVEN BRANDS
                     INPUT:
                     Name: Chill Creams
                     Problem: Lack of variety in Icecreams
@@ -112,16 +116,40 @@ const removeStage = () => {
 
                     Differentiating Factor: ${differs} 
 
-                    OUTPUT:`;
+                    OUTPUT:`; 
 
 
-    //below makes request to api - comment out to save tokens
+        return prompt;
+        }
+
+
+//gets inputs, prepares prompt, calls makeReq() 
+
+    const prepInputs = () => {
+
+
+    //Getting inputs from forms
+    const company = document.querySelector('#name').value;
+    const key = document.querySelector('#pass').value;
+
+    const work = document.querySelector('#defn').value;
+    const problem = document.querySelector('#problem').value;
+    const solution = document.querySelector('#solution').value;
+    const differs = document.querySelector('#diff').value;
+    
+
+
+    //The starter prompt, Alter this for better replies
+    const sPrompt = createPrompt(company, problem, solution, differs, 1);
+
+
+    //below makes request to api - comment out during debugging to save tokens
 
     const reply = makeReq(apiUrl, key, sPrompt); 
 
 
      //Test codes - used to see if our application works properly 
-    /* console.log('one pass')
+/*     console.log('one pass')
     removeStage();
     addElement(sPrompt);  */
                    
